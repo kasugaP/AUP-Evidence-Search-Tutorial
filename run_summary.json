@@ -1,0 +1,128 @@
+{
+  "run_date": "2026-10-24",
+  "source_archive_sha256": "55f2d2a1b549a0b6f79e43a1e814bda99bcfc431bde7f85ccdd64328587beebb",
+  "hardware": {
+    "python": "3.12.3",
+    "torch": "2.9.1+rocm7.13.0",
+    "hip": "7.13.99004-3309c6114a",
+    "device_available": true,
+    "device": "Radeon 8060S Graphics",
+    "total_memory_bytes": 68719476736,
+    "tensor_check_passed": true,
+    "sentence-transformers": "5.7.0",
+    "transformers": "4.57.6",
+    "numpy": "2.4.6",
+    "pypdf": "6.21.2",
+    "huggingface-hub": "0.36.2"
+  },
+  "config": {
+    "model_id": "Qwen/Qwen3-Embedding-0.6B",
+    "model_revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "chunk_size_characters": 1000,
+    "overlap_characters": 150,
+    "max_input_tokens": 576,
+    "batch_size": 4,
+    "top_k": 5,
+    "reason_for_token_limit": "Local source-only check found one reference-list chunk of 523 tokens; raise the initial 512-token cap before examining retrieval rankings. Keep all 669 chunks unchanged.",
+    "fallback_if_gpu_out_of_memory": "Reduce batch_size to 1; retain the same corpus, model revision and token limit."
+  },
+  "model_smoke": {
+    "model": "Qwen/Qwen3-Embedding-0.6B",
+    "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "embedding_shape": [
+      2,
+      1024
+    ],
+    "load_seconds": 2.291261610109359
+  },
+  "index": {
+    "chunks": 669,
+    "embedding_dimensions": 1024,
+    "max_tokens": 576,
+    "batch_size": 4,
+    "overlong_chunks": 0,
+    "model_load_seconds": 0.39929765509441495,
+    "embedding_seconds": 97.26226960704662,
+    "chunks_sha256": "e070ade15c78e5dec1a61f422150eabafbfcb16ae4f19046a6395583f8299a45",
+    "scope": "inference only; no training"
+  },
+  "preparation": {
+    "pdfs": 10,
+    "physical_pages": 103,
+    "chunks": 669,
+    "questions": 20,
+    "development_questions": 5,
+    "test_questions": 15,
+    "source_quote_matches": 20,
+    "human_confirmed_questions": 0,
+    "scope": "10-paper, methods-focused convenience set; all gold locations are PDF physical page 2"
+  },
+  "questions_sha256": "88b1303d7a430ba4f162c9cb91d6980130931017061cc9b7953bddc5963faa3b",
+  "metrics": {
+    "bm25": {
+      "dev": {
+        "questions": 5,
+        "page_hits": 3,
+        "exact_quote_hits": 2,
+        "page_hit_rate": 0.6,
+        "exact_quote_hit_rate": 0.4,
+        "page_mrr_at_k": 0.35,
+        "manual_candidate_rows": 25,
+        "manual_rows_with_any_entry": 0
+      },
+      "test": {
+        "questions": 15,
+        "page_hits": 10,
+        "exact_quote_hits": 7,
+        "page_hit_rate": 0.6666666666666666,
+        "exact_quote_hit_rate": 0.4666666666666667,
+        "page_mrr_at_k": 0.43555555555555553,
+        "manual_candidate_rows": 75,
+        "manual_rows_with_any_entry": 0
+      }
+    },
+    "dense": {
+      "dev": {
+        "questions": 5,
+        "page_hits": 4,
+        "exact_quote_hits": 2,
+        "page_hit_rate": 0.8,
+        "exact_quote_hit_rate": 0.4,
+        "page_mrr_at_k": 0.6,
+        "manual_candidate_rows": 25,
+        "manual_rows_with_any_entry": 0
+      },
+      "test": {
+        "questions": 15,
+        "page_hits": 10,
+        "exact_quote_hits": 5,
+        "page_hit_rate": 0.6666666666666666,
+        "exact_quote_hit_rate": 0.3333333333333333,
+        "page_mrr_at_k": 0.5388888888888889,
+        "manual_candidate_rows": 75,
+        "manual_rows_with_any_entry": 0
+      }
+    }
+  },
+  "checks": {
+    "metrics_recomputed_from_ranked_results": true,
+    "recorded_corpus_and_question_hashes_agree": true,
+    "source_text_exported": false
+  },
+  "verification_scope": {
+    "kind": "internal consistency of existing exported records only",
+    "gpu_inference_rerun": false,
+    "original_corpus_and_questions_rehashed": false,
+    "cloud_source_identity_verified": false,
+    "complete_notebook_execution_log_verified": false,
+    "original_scores_reproduced_from_public_materials": false,
+    "independent_scientific_review_completed": false
+  },
+  "limitations": [
+    "Small methods-focused convenience set; all gold spans on PDF physical page 2.",
+    "Reference labels were source-checked by an assistant; independent human confirmation is pending.",
+    "Question-level dev/test split; source papers overlap between splits.",
+    "Downloaded notebook does not preserve the complete final execution log.",
+    "No CPU embedding benchmark or repeated timing experiment was performed."
+  ]
+}

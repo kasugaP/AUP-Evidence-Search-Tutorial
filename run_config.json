@@ -1,0 +1,11 @@
+{
+  "model_id": "Qwen/Qwen3-Embedding-0.6B",
+  "model_revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "chunk_size_characters": 1000,
+  "overlap_characters": 150,
+  "max_input_tokens": 576,
+  "batch_size": 4,
+  "top_k": 5,
+  "reason_for_token_limit": "Local source-only check found one reference-list chunk of 523 tokens; raise the initial 512-token cap before examining retrieval rankings. Keep all 669 chunks unchanged.",
+  "fallback_if_gpu_out_of_memory": "Reduce batch_size to 1; retain the same corpus, model revision and token limit."
+}
